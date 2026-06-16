@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&T Seguros | Broker de Seguros</title>
+    <!-- Google Fonts & FontAwesome para Iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES DE COLOR (Basadas en 1000123582.png) --- */
+        :root {
+            --primary-color: #4A154B;       /* Tono vino base */
+            --primary-dark: #300A34;        /* Tono vino profundo */
+            --secondary-color: #8A4FFF;     /* Violeta vibrante */
+            --accent-color: #D4AF37;        /* Dorado para detalles sutiles */
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* --- NAVBAR (Estilo Ten Broking) --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .logo img {
+            height: 45px; /* Ajusta según el recorte de tu imagen */
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding-top: 80px; /* Evita que el nav tape el contenido */
+            min-height: 85vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, #1e0522 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-light);
+        }
+
+        /* Efecto de curvas abstractas de fondo similares a Ten Broking */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(138,79,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--secondary-color);
+            background: linear-gradient(to right, #b18cff, var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(138,79,255,0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #763ee6;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Reemplazo elegante si no hay imagen de stock inmediata */
+        .hero-image-placeholder {
+            width: 80%;
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, rgba(214,175,55,0.1), rgba(138,79,255,0.2));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morphing 10s infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(254,254,254,0.1);
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        /* --- SECCIÓN PROPUESTA DE VALOR / NOSOTROS --- */
+        .about {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* --- TARJETAS DE SERVICIOS (Grid estilo Ten Broking) --- */
+        .services {
+            background-color: var(--bg-light);
+            padding: 80px 20px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: var(--text-light);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top: 4px solid var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(74,21,75,0.08);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-image {
+                display: none; /* Oculta el diseño abstracto en móvil para priorizar texto */
+            }
+            .nav-menu {
+                display: none; /* Aquí se podría armar un menú hamburguesa básico */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Reemplazá '1000123582.png' con la ruta correcta cuando lo subas -->
+                <img src="1000123582.png" alt="M&T Seguros Logo">
+                <span>M&T SEGUROS</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#coberturas">Coberturas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Protección a la medida de tu <span>futuro</span></h1>
+                <p>En M&T Seguros combinamos solidez, confianza y asesoramiento personalizado para diseñar las mejores coberturas patrimoniales y personales.</p>
+                <a href="#contacto" class="btn-primary">Consultar Asesor</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 5rem; color: rgba(255,255,255,0.6);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+        <h2 class="section-title">Quiénes Somos</h2>
+        <p class="section-subtitle">Un bróker ágil y resolutivo comprometido con cuidar lo que más valorás.</p>
+        <div style="max-width: 800px; margin: 0 auto; color: #555;">
+            <p>Nuestra misión es simplificar la gestión de tus pólizas, ofreciendo una atención de máxima precisión al detalle y respuestas dinámicas ante cualquier siniestro. Trabajamos junto a vos para mitigar riesgos con total transparencia.</p>
+        </div>
+    </section>
+
+    <!-- COBERTURAS -->
+    <section class="services" id="coberturas">
+        <div class="services-container">
+            <div style="text-align: center;">
+                <h2 class="section-title">Nuestras Coberturas</h2>
+                <p class="section-subtitle">Soluciones integrales para individuos y corporaciones</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Tarjeta 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-umbrella"></i></div>
+                    <h3>Retiro y Planificación</h3>
+                    <p>Asegurá tu tranquilidad económica futura y la de los tuyos a través de herramientas de ahorro e inversión estratégicas.</p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
+                    <h3>Automotores</h3>
+                    <p>Planes a la medida de tu vehículo, desde responsabilidad civil básica hasta coberturas todo riesgo premium.</p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <h3>Hogar y Comercio</h3>
+                    <p>Protección total para tu patrimonio inmobiliario contra incendios, robos y accidentes imprevistos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 M&T Seguros. Todos los derechos reservados.</p>
+        <p style="margin-top: 5px; font-size: 0.8rem; opacity: 0.5;">Buenos Aires, Argentina</p>
+    </footer>
+
+</body>
+</html>
