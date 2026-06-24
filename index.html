@@ -3,24 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M&T Seguros | Broker de Seguros</title>
-    <!-- Google Fonts & FontAwesome para Iconos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>M&T Seguros | Asesoramiento Integral</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* --- VARIABLES DE COLOR (Basadas en 1000123582.png) --- */
+        /* --- VARIABLES DE COLOR (Basadas en tu Logo) --- */
         :root {
-            --primary-color: #4A154B;       /* Tono vino base */
-            --primary-dark: #300A34;        /* Tono vino profundo */
-            --secondary-color: #8A4FFF;     /* Violeta vibrante */
-            --accent-color: #D4AF37;        /* Dorado para detalles sutiles */
-            --text-dark: #222222;
-            --text-light: #ffffff;
-            --bg-light: #f9f9f9;
-            --font-main: 'Montserrat', sans-serif;
+            --primary-gradient: linear-gradient(135deg, #7B2CBF, #3C096C);
+            --primary-color: #5A189A;
+            --secondary-color: #E0AA3E; /* Dorado de las líneas del logo */
+            --dark-neutral: #1A1A24;
+            --light-neutral: #F7F5FA;
+            --white: #FFFFFF;
+            --text-gray: #555566;
         }
 
         /* --- ESTILOS GENERALES --- */
@@ -28,178 +22,137 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
+            background-color: var(--white);
+            color: var(--dark-neutral);
             line-height: 1.6;
-            background-color: #ffffff;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* --- NAVBAR (Estilo Ten Broking) --- */
+        /* --- HEADER & NAVBAR --- */
         header {
-            position: fixed;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 0;
         }
 
-        .logo {
+        .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--primary-dark);
+            gap: 12px;
         }
 
-        .logo img {
-            height: 45px; /* Ajusta según el recorte de tu imagen */
+        .logo-area img {
+            height: 50px; /* Ajusta según el recorte de tu imagen */
             width: auto;
         }
 
-        .nav-menu {
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-neutral);
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 30px;
         }
 
-        .nav-menu a {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary-dark);
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-neutral);
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .nav-menu a:hover {
-            color: var(--secondary-color);
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(90, 24, 154, 0.3);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            padding-top: 80px; /* Evita que el nav tape el contenido */
-            min-height: 85vh;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, #1e0522 100%);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            color: var(--text-light);
+            background: linear-gradient(rgba(26, 26, 36, 0.45), rgba(26, 26, 36, 0.45)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            padding: 140px 0;
+            color: var(--white);
+            text-align: center;
         }
 
-        /* Efecto de curvas abstractas de fondo similares a Ten Broking */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(138,79,255,0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 40px;
-            width: 100%;
-        }
-
-        .hero-content h1 {
+        .hero h1 {
             font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
+            font-weight: 800;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
-        .hero-content h1 span {
-            color: var(--secondary-color);
-            background: linear-gradient(to right, #b18cff, var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
         }
 
-        .hero-content p {
+        .hero .btn-cta {
+            background: var(--secondary-color);
+            color: var(--dark-neutral);
+            padding: 14px 32px;
             font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-weight: 300;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(138,79,255,0.4);
+        .hero .btn-cta:hover {
+            box-shadow: 0 4px 15px rgba(224, 170, 62, 0.4);
         }
 
-        .btn-primary:hover {
-            background-color: #763ee6;
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Reemplazo elegante si no hay imagen de stock inmediata */
-        .hero-image-placeholder {
-            width: 80%;
-            aspect-ratio: 1;
-            background: linear-gradient(45deg, rgba(214,175,55,0.1), rgba(138,79,255,0.2));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: morphing 10s infinite ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(254,254,254,0.1);
-        }
-
-        @keyframes morphing {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
-
-        /* --- SECCIÓN PROPUESTA DE VALOR / NOSOTROS --- */
-        .about {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* --- VALORES / SOBRE NOSOTROS --- */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
             text-align: center;
         }
 
         .section-title {
             font-size: 2.2rem;
-            color: var(--primary-dark);
+            font-weight: 700;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
@@ -210,177 +163,268 @@
             display: block;
             width: 50px;
             height: 3px;
-            background-color: var(--accent-color);
+            background-color: var(--secondary-color);
             margin: 10px auto 0 auto;
+            border-radius: 2px;
         }
 
         .section-subtitle {
-            color: #666;
+            color: var(--text-gray);
             margin-bottom: 50px;
             font-size: 1.1rem;
         }
 
-        /* --- TARJETAS DE SERVICIOS (Grid estilo Ten Broking) --- */
-        .services {
-            background-color: var(--bg-light);
-            padding: 80px 20px;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
-        .service-card {
-            background-color: var(--text-light);
+        .feature-card {
+            background-color: var(--light-neutral);
             padding: 40px 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
+            transition: transform 0.3s;
             border-top: 4px solid transparent;
         }
 
-        .service-card:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
-            border-top: 4px solid var(--secondary-color);
-            box-shadow: 0 10px 30px rgba(74,21,75,0.08);
+            border-top: 4px solid var(--primary-color);
         }
 
-        .service-icon {
+        .feature-card i {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
 
-        .service-card h3 {
-            font-size: 1.3rem;
+        .feature-card h3 {
             margin-bottom: 15px;
-            color: var(--primary-dark);
+            font-size: 1.3rem;
+        }
+
+        /* --- SERVICIOS / COBERTURAS --- */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-neutral);
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 35px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card h3 i {
+            color: var(--secondary-color);
         }
 
         .service-card p {
-            color: #666;
+            color: var(--text-gray);
             font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- CTA CONTACTO --- */
+        .contact-cta {
+            background: var(--primary-gradient);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .contact-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            background-color: #20ba5a;
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--primary-dark);
-            color: var(--text-light);
-            padding: 40px 20px;
-            text-align: center;
+            background-color: var(--dark-neutral);
+            color: #A0A0B0;
+            padding: 40px 0;
             font-size: 0.9rem;
-            border-top: 3px solid var(--accent-color);
         }
 
-        footer p {
-            opacity: 0.7;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        /* --- RESPONSIVE DESIGN --- */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
             }
-            .hero-content h1 {
+            .nav-links {
+                gap: 15px;
+            }
+            .hero h1 {
                 font-size: 2.2rem;
-            }
-            .hero-image {
-                display: none; /* Oculta el diseño abstracto en móvil para priorizar texto */
-            }
-            .nav-menu {
-                display: none; /* Aquí se podría armar un menú hamburguesa básico */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                <!-- Reemplazá '1000123582.png' con la ruta correcta cuando lo subas -->
-<img src="1000123582.png" alt="M&T Seguros Logo" style="height: 45px; width: auto;">
-                <span>M&T SEGUROS</span>
+        <div class="container navbar">
+            <div class="logo-area">
+                <img src="logo.png" alt="M&T Seguros Logo">
+                <div class="logo-text">M&T <span>SEGUROS</span></div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#coberturas">Coberturas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#valores">Nosotros</a></li>
+                    <li><a href="#coberturas">Coberturas</a></li>
+                </ul>
+            </nav>
+            <a href="#contacto" class="btn-cta">Consultar</a>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Protección a la medida de tu <span>futuro</span></h1>
-                <p>En M&T Seguros combinamos solidez, confianza y asesoramiento personalizado para diseñar las mejores coberturas patrimoniales y personales.</p>
-                <a href="#contacto" class="btn-primary">Consultar Asesor</a>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-placeholder">
-                    <i class="fa-solid fa-shield-halved" style="font-size: 5rem; color: rgba(255,255,255,0.6);"></i>
+        <div class="container">
+            <h1>Protegé lo que más importa, planificá tu futuro</h1>
+            <p>Brindamos soluciones integrales en seguros y planes de retiro diseñados a la medida de tus metas y necesidades.</p>
+            <a href="#contacto" class="btn-cta">Iniciar Cotización</a>
+        </div>
+    </section>
+
+    <section class="features" id="valores">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
+            <p class="section-subtitle">Tu tranquilidad y respaldo financiero son nuestra máxima prioridad.</p>
+            
+            <div class="grid-3">
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Atención Personalizada</h3>
+                    <p>Analizamos detalladamente tu perfil para ofrecerte la cobertura exacta que necesitás, sin vueltas.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Planificación de Retiro</h3>
+                    <p>Te asesoramos en herramientas sólidas para construir un futuro financiero estable y seguro.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-handshake"></i>
+                    <h3>Respaldo y Confianza</h3>
+                    <p>Trabajamos con la seriedad y el compromiso necesarios para acompañarte en cada etapa importante.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOBRE NOSOTROS -->
-    <section class="about" id="nosotros">
-        <h2 class="section-title">Quiénes Somos</h2>
-        <p class="section-subtitle">Un bróker ágil y resolutivo comprometido con cuidar lo que más valorás.</p>
-        <div style="max-width: 800px; margin: 0 auto; color: #555;">
-            <p>Nuestra misión es simplificar la gestión de tus pólizas, ofreciendo una atención de máxima precisión al detalle y respuestas dinámicas ante cualquier siniestro. Trabajamos junto a vos para mitigar riesgos con total transparencia.</p>
-        </div>
-    </section>
-
-    <!-- COBERTURAS -->
     <section class="services" id="coberturas">
-        <div class="services-container">
+        <div class="container">
             <div style="text-align: center;">
                 <h2 class="section-title">Nuestras Coberturas</h2>
-                <p class="section-subtitle">Soluciones integrales para individuos y corporaciones</p>
+                <p class="section-subtitle">Soluciones de protección para personas, familias y profesionales.</p>
             </div>
-            
-            <div class="services-grid">
-                <!-- Tarjeta 1 -->
+
+            <div class="grid-3">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-umbrella"></i></div>
-                    <h3>Retiro y Planificación</h3>
-                    <p>Asegurá tu tranquilidad económica futura y la de los tuyos a través de herramientas de ahorro e inversión estratégicas.</p>
+                    <div>
+                        <h3><i class="fa-solid fa-piggy-bank"></i> Seguro de Retiro</h3>
+                        <p>Diseñá un plan de ahorro a largo plazo con excelentes rendimientos para garantizar tu tranquilidad mañana.</p>
+                    </div>
+                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <!-- Tarjeta 2 -->
+                
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-car"></i></div>
-                    <h3>Automotores</h3>
-                    <p>Planes a la medida de tu vehículo, desde responsabilidad civil básica hasta coberturas todo riesgo premium.</p>
+                    <div>
+                        <h3><i class="fa-solid fa-car"></i> Seguros Patrimoniales</h3>
+                        <p>Protección total para tu vehículo, hogar o comercio ante cualquier imprevisto o siniestro.</p>
+                    </div>
+                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-                <!-- Tarjeta 3 -->
+
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-house-chimney"></i></div>
-                    <h3>Hogar y Comercio</h3>
-                    <p>Protección total para tu patrimonio inmobiliario contra incendios, robos y accidentes imprevistos.</p>
+                    <div>
+                        <h3><i class="fa-solid fa-heart-pulse"></i> Vida y Accidentes</h3>
+                        <p>La seguridad y el respaldo financiero que tu familia necesita en los momentos más delicados.</p>
+                    </div>
+                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <section class="contact-cta" id="contacto">
+        <div class="container">
+            <h2>¿Hablamos hoy?</h2>
+            <p>Ponete en contacto con nosotros para recibir un asesoramiento a tu medida de forma ágil y directa.</p>
+            <a href="https://wa.me/tu_numero_aqui" target="_blank" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 M&T Seguros. Todos los derechos reservados.</p>
-        <p style="margin-top: 5px; font-size: 0.8rem; opacity: 0.5;">Buenos Aires, Argentina</p>
+        <div class="container footer-content">
+            <div>
+                <p>&copy; 2026 M&T Seguros. Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <p>Asesores Productores de Seguros</p>
+            </div>
+        </div>
     </footer>
 
 </body>
