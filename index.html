@@ -6,15 +6,16 @@
     <title>M&T Seguros | Asesoramiento Integral</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- VARIABLES DE COLOR (Basadas en tu Logo) --- */
+        /* --- VARIABLES DE COLOR (Códigos exactos de tu logo) --- */
         :root {
-            --primary-gradient: linear-gradient(135deg, #7B2CBF, #3C096C);
-            --primary-color: #5A189A;
-            --secondary-color: #E0AA3E; /* Dorado de las líneas del logo */
-            --dark-neutral: #1A1A24;
-            --light-neutral: #F7F5FA;
+            --primary-gradient: linear-gradient(135deg, #9f4ef0, #8c1567);
+            --dark-gradient: linear-gradient(135deg, #8c1567, #450631);
+            --primary-color: #8c1567;
+            --secondary-color: #c19a42; /* Dorado de las líneas del logo */
+            --dark-neutral: #450631;    /* Violeta oscuro profundo */
+            --light-neutral: #fbf6fa;   /* Fondo claro con tinte violeta */
             --white: #FFFFFF;
-            --text-gray: #555566;
+            --text-gray: #6b5865;
         }
 
         /* --- ESTILOS GENERALES --- */
@@ -40,7 +41,7 @@
         /* --- HEADER & NAVBAR --- */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(69, 6, 49, 0.06);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -50,24 +51,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 10px 0; /* Reducido levemente para balancear el alto */
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
+        /* LOGO MÁS GRANDE */
         .logo-area img {
-            height: 50px; /* Ajusta según el recorte de tu imagen */
+            height: 85px; /* Aumentado considerablemente para mayor presencia */
             width: auto;
+            display: block;
+            object-fit: contain;
         }
 
         .logo-text {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             color: var(--dark-neutral);
+            letter-spacing: 0.5px;
         }
 
         .logo-text span {
@@ -77,13 +82,13 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark-neutral);
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
         }
 
@@ -94,7 +99,7 @@
         .btn-cta {
             background: var(--primary-gradient);
             color: var(--white);
-            padding: 10px 22px;
+            padding: 12px 26px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
@@ -105,73 +110,77 @@
 
         .btn-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(90, 24, 154, 0.3);
+            box-shadow: 0 4px 20px rgba(140, 21, 103, 0.3);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(26, 26, 36, 0.45), rgba(26, 26, 36, 0.45)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            padding: 140px 0;
+            background: linear-gradient(rgba(45, 6, 49, 0.65), rgba(69, 6, 49, 0.65)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            padding: 150px 0;
             color: var(--white);
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
             margin-bottom: 20px;
             letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 35px;
-            max-width: 600px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.95;
         }
 
+        /* Botón del Hero con el dorado del logo */
         .hero .btn-cta {
             background: var(--secondary-color);
             color: var(--dark-neutral);
-            padding: 14px 32px;
+            padding: 15px 35px;
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .hero .btn-cta:hover {
-            box-shadow: 0 4px 15px rgba(224, 170, 62, 0.4);
+            box-shadow: 0 4px 20px rgba(193, 154, 66, 0.5);
+            background-color: #d1a94e;
         }
 
         /* --- VALORES / SOBRE NOSOTROS --- */
         .features {
-            padding: 80px 0;
+            padding: 90px 0;
             background-color: var(--white);
             text-align: center;
         }
 
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            color: var(--dark-neutral);
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background-color: var(--secondary-color);
-            margin: 10px auto 0 auto;
+            margin: 12px auto 0 auto;
             border-radius: 2px;
         }
 
         .section-subtitle {
             color: var(--text-gray);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
+            margin-bottom: 60px;
+            font-size: 1.15rem;
         }
 
         .grid-3 {
@@ -182,50 +191,54 @@
 
         .feature-card {
             background-color: var(--light-neutral);
-            padding: 40px 30px;
-            border-radius: 8px;
-            transition: transform 0.3s;
+            padding: 45px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid transparent;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
             border-top: 4px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(69, 6, 49, 0.04);
         }
 
         .feature-card i {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .feature-card h3 {
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            color: var(--dark-neutral);
         }
 
         /* --- SERVICIOS / COBERTURAS --- */
         .services {
-            padding: 80px 0;
+            padding: 90px 0;
             background-color: var(--light-neutral);
         }
 
         .service-card {
             background-color: var(--white);
-            padding: 35px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(69, 6, 49, 0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border: 1px solid rgba(140, 21, 103, 0.05);
         }
 
         .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
+            font-size: 1.35rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            color: var(--dark-neutral);
         }
 
         .service-card h3 i {
@@ -234,53 +247,60 @@
 
         .service-card p {
             color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 25px;
         }
 
         .service-link {
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .service-link:hover {
+            gap: 10px;
         }
 
         /* --- CTA CONTACTO --- */
         .contact-cta {
-            background: var(--primary-gradient);
+            background: var(--dark-gradient);
             color: var(--white);
             text-align: center;
-            padding: 80px 0;
+            padding: 90px 0;
         }
 
         .contact-cta h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .contact-cta p {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1.1rem;
         }
 
         .btn-whatsapp {
             background-color: #25D366;
             color: var(--white);
-            padding: 14px 30px;
+            padding: 15px 35px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: transform 0.3s;
+            gap: 12px;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
         .btn-whatsapp:hover {
@@ -290,10 +310,11 @@
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--dark-neutral);
-            color: #A0A0B0;
-            padding: 40px 0;
-            font-size: 0.9rem;
+            background-color: #28021d; /* Tono aún más oscuro del violeta base */
+            color: #d2bdcb;
+            padding: 45px 0;
+            font-size: 0.95rem;
+            border-top: 3px solid var(--secondary-color);
         }
 
         .footer-content {
@@ -308,23 +329,29 @@
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
+                padding: 20px 0;
             }
             .nav-links {
-                gap: 15px;
+                gap: 20px;
             }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+            .logo-area img {
+                height: 65px; /* Un poco más contenido en móviles */
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <header>
         <div class="container navbar">
             <div class="logo-area">
-                <img src="logo.png">
+                <!-- Se asume que el archivo del logo lo guardaste como logo.jpg -->
+                <img src="logo.jpg" alt="M&T Seguros Logo">
                 <div class="logo-text">M&T <span>SEGUROS</span></div>
             </div>
             <nav>
@@ -338,6 +365,7 @@
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="container">
             <h1>Protegé lo que más importa, planificá tu futuro</h1>
@@ -346,6 +374,7 @@
         </div>
     </section>
 
+    <!-- VALORES / DIFERENCIALES -->
     <section class="features" id="valores">
         <div class="container">
             <h2 class="section-title">¿Por qué elegirnos?</h2>
@@ -371,6 +400,7 @@
         </div>
     </section>
 
+    <!-- COBERTURAS -->
     <section class="services" id="coberturas">
         <div class="container">
             <div style="text-align: center;">
@@ -379,6 +409,7 @@
             </div>
 
             <div class="grid-3">
+                <!-- Cobertura 1 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-piggy-bank"></i> Seguro de Retiro</h3>
@@ -387,6 +418,7 @@
                     <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
+                <!-- Cobertura 2 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-car"></i> Seguros Patrimoniales</h3>
@@ -395,6 +427,7 @@
                     <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
+                <!-- Cobertura 3 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-heart-pulse"></i> Vida y Accidentes</h3>
@@ -406,6 +439,7 @@
         </div>
     </section>
 
+    <!-- CONTACTO CTA -->
     <section class="contact-cta" id="contacto">
         <div class="container">
             <h2>¿Hablamos hoy?</h2>
@@ -416,6 +450,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div>
