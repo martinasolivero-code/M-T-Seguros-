@@ -51,7 +51,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 0; /* Ajustado para enmarcar estéticamente el logo */
+            padding: 22px 0; /* Aumentado formalmente para expandir el tamaño de la barra superior */
         }
 
         .logo-area {
@@ -78,6 +78,7 @@
             text-decoration: none;
             color: var(--dark-neutral);
             font-weight: 600;
+            font-size: 1.05rem; /* Ajuste sutil de tamaño de fuente */
             transition: color 0.3s;
         }
 
@@ -88,7 +89,7 @@
         .btn-cta {
             background: var(--primary-gradient);
             color: var(--white);
-            padding: 12px 26px;
+            padding: 14px 30px; /* Aumentado levemente para balancear la barra superior */
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
@@ -104,8 +105,9 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(45, 6, 49, 0.65), rgba(69, 6, 49, 0.65)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            padding: 150px 0;
+            /* Alternativa formal y corporativa integrada mediante Unsplash */
+            background: linear-gradient(rgba(45, 6, 49, 0.7), rgba(69, 6, 49, 0.7)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            padding: 160px 0;
             color: var(--white);
             text-align: center;
         }
@@ -236,25 +238,81 @@
         .service-card p {
             color: var(--text-gray);
             font-size: 1rem;
-            margin-bottom: 25px;
+            margin-bottom: 5px; 
         }
 
-        .service-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
+        /* --- NUEVA SECCIÓN: FORMULARIO ABAJO DE TODO --- */
+        .cotizador-section {
+            padding: 90px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 40px auto 0 auto;
+            background-color: var(--light-neutral);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(140, 21, 103, 0.08);
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(69, 6, 49, 0.03);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-neutral);
             font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: gap 0.2s;
         }
 
-        .service-link:hover {
-            gap: 10px;
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(140, 21, 103, 0.2);
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--dark-neutral);
+            background-color: var(--white);
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        /* --- CTA CONTACTO --- */
+        .form-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-auto-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit-form {
+            width: 100%;
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit-form:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(140, 21, 103, 0.25);
+        }
+
+        /* --- CTA CONTACTO DIRECTO --- */
         .contact-cta {
             background: var(--dark-gradient);
             color: var(--white);
@@ -327,18 +385,20 @@
                 font-size: 2.4rem;
             }
             .logo-area img {
-                height: 75px; /* Un poco más balanceado en pantallas móviles */
+                height: 75px;
+            }
+            .form-auto-row {
+                grid-template-columns: 1fr;
+                gap: 0;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header>
         <div class="container navbar">
             <div class="logo-area">
-                <!-- Recordá que tu archivo de imagen debe llamarse logo.jpg en tu raíz de GitHub -->
                 <img src="logo horizontal.png" alt="M&T Seguros Logo">
             </div>
             <nav>
@@ -348,20 +408,18 @@
                     <li><a href="#coberturas">Coberturas</a></li>
                 </ul>
             </nav>
-            <a href="#contacto" class="btn-cta">Consultar</a>
+            <a href="#consultar-plan" class="btn-cta">Consultar</a>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="container">
             <h1>Protegé lo que más importa, planificá tu futuro</h1>
             <p>Brindamos soluciones integrales en seguros y planes de retiro diseñados a la medida de tus metas y necesidades.</p>
-            <a href="#contacto" class="btn-cta">Iniciar Cotización</a>
+            <a href="#consultar-plan" class="btn-cta">Iniciar Cotización</a>
         </div>
     </section>
 
-    <!-- VALORES / DIFERENCIALES -->
     <section class="features" id="valores">
         <div class="container">
             <h2 class="section-title">¿Por qué elegirnos?</h2>
@@ -387,7 +445,6 @@
         </div>
     </section>
 
-    <!-- COBERTURAS -->
     <section class="services" id="coberturas">
         <div class="container">
             <div style="text-align: center;">
@@ -396,37 +453,70 @@
             </div>
 
             <div class="grid-3">
-                <!-- Cobertura 1 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-piggy-bank"></i> Seguro de Retiro</h3>
                         <p>Diseñá un plan de ahorro a largo plazo con excelentes rendimientos para garantizar tu tranquilidad mañana.</p>
                     </div>
-                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 
-                <!-- Cobertura 2 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-car"></i> Seguros Patrimoniales</h3>
                         <p>Protección total para tu vehículo, hogar o comercio ante cualquier imprevisto o siniestro.</p>
                     </div>
-                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Cobertura 3 -->
                 <div class="service-card">
                     <div>
                         <h3><i class="fa-solid fa-heart-pulse"></i> Vida y Accidentes</h3>
                         <p>La seguridad y el respaldo financiero que tu familia necesita en los momentos más delicados.</p>
                     </div>
-                    <a href="#contacto" class="service-link">Más información <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO CTA -->
+    <section class="cotizador-section" id="consultar-plan">
+        <div class="container">
+            <h2 class="section-title">Solicitá tu Cotización</h2>
+            <p class="section-subtitle">Completá tus datos y los de tu vehículo para recibir un asesoramiento a tu medida.</p>
+            
+            <div class="form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre y Apellido</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono (con código de área)</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 11 1234 5678" required>
+                    </div>
+                    
+                    <div class="form-auto-row">
+                        <div class="form-group">
+                            <label for="auto-anio">Año del Vehículo</label>
+                            <input type="number" id="auto-anio" name="auto-anio" min="1980" max="2027" placeholder="Ej: 2022" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="auto-marca">Marca</label>
+                            <input type="text" id="auto-marca" name="auto-marca" placeholder="Ej: Volkswagen" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="auto-modelo">Modelo</label>
+                            <input type="text" id="auto-modelo" name="auto-modelo" placeholder="Ej: Gol Trend" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit-form">Enviar Consulta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section class="contact-cta" id="contacto">
         <div class="container">
             <h2>¿Hablamos hoy?</h2>
@@ -437,7 +527,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <div>
