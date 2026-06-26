@@ -555,3 +555,100 @@ footer {
         gap: 0;
     }
 }
+/* ==========================================================================
+   OPTIMIZACIÓN EXCLUSIVA PARA DISPOSITIVOS MÓVILES (Responsive Design)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Ajustes generales de contenedores y espaciados */
+    .container {
+        padding: 0 20px; /* Margen interno para que nada toque los bordes de la pantalla */
+    }
+
+    section {
+        padding: 60px 0; /* Reducimos los paddings exagerados de 90px/100px para que no haya tanto scroll */
+    }
+
+    .section-subtitle {
+        margin-bottom: 40px !important; /* Menos espacio muerto antes de las grillas */
+        font-size: 0.95rem;
+    }
+
+    /* 2. Sección Coberturas (Estilo Cápsula en Celulares) */
+    .grid-4 {
+        grid-template-columns: 1fr; /* Una cobertura debajo de la otra de forma limpia */
+        gap: 40px; /* Separación justa entre tarjetas */
+    }
+
+    .coverage-title {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+        /* Estilo en una sola línea o centrado opcional según prefieras, lo dejamos a la izquierda */
+        text-align: left; 
+    }
+
+    .coverage-card-box {
+        height: 220px; /* Altura ideal en celulares para que no ocupe toda la pantalla */
+        border-radius: 0px 90px 90px 90px; /* Suavizamos el corte para pantallas angostas */
+    }
+
+    .coverage-text-box {
+        margin-top: 12px;
+        padding: 15px;
+        font-size: 0.9rem; /* Texto levemente más chico para mejorar la lectura */
+    }
+
+    /* 3. Formulario y Cotizador Inteligente */
+    .cotizador-section {
+        scroll-margin-top: 80px; /* Ajuste del salto al clickear "Consultar" (se adapta a la barra móvil) */
+    }
+
+    .form-container {
+        padding: 20px 15px; /* Más espacio útil dentro del formulario */
+        border-radius: 12px;
+    }
+
+    /* Forzamos a que las filas dinámicas de Auto, Hogar, Vida/Retiro se hagan de 1 sola columna */
+    .form-auto-row, 
+    .form-hogar-row, 
+    .form-vida-row {
+        grid-template-columns: 1fr !important;
+        gap: 0; /* El espacio lo manejará el margen del form-group */
+    }
+
+    .form-group {
+        margin-bottom: 15px; /* Espaciado vertical prolijo entre cajones */
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .form-container input, 
+    .form-container select {
+        padding: 12px; /* Caja cómoda para tocar con el dedo */
+        font-size: 0.95rem;
+    }
+
+    .btn-submit-form {
+        width: 100%; /* El botón ocupa todo el ancho del formulario, ideal para celulares */
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    .conditional-msg {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajuste extremo para celulares muy pequeños (iPhone SE, etc.) */
+@media (max-width: 380px) {
+    .coverage-card-box {
+        height: 190px; /* Evita que la imagen quede gigante de forma vertical */
+    }
+    
+    .section-title {
+        font-size: 1.6rem; /* Achicamos un punto los títulos para que no se corten */
+    }
+}
