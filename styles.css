@@ -652,3 +652,26 @@ footer {
         font-size: 1.6rem; /* Achicamos un punto los títulos para que no se corten */
     }
 }
+/* ==========================================================================
+   CORRECCIÓN DE ANCLAJE PARA MENÚ SUPERIOR FIJO (Evita títulos cortados)
+   ========================================================================== */
+/* Se aplica a todas las secciones principales de la página */
+section, 
+#nosotros, 
+#coberturas, 
+#consultar-plan {
+    /* Desplaza el punto de frenado del scroll hacia abajo */
+    scroll-margin-top: 120px; 
+    /* Agrega una transición suave para que el salto no sea brusco */
+    scroll-behavior: smooth;
+}
+
+/* Ajuste específico para celulares (donde el menú suele cambiar de altura) */
+@media (max-width: 768px) {
+    section, 
+    #nosotros, 
+    #coberturas, 
+    #consultar-plan {
+        scroll-margin-top: 90px; /* Un poco menos de margen adaptado a la barra móvil */
+    }
+}
