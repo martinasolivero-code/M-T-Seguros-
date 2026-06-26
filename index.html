@@ -232,6 +232,56 @@
             </div>
         </div>
     </footer>
+<script>
+        document.getElementById('tipo-seguro').addEventListener('change', function() {
+            const seleccion = this.value;
+            
+            // Traer todos los contenedores condicionales
+            const blockAuto = document.getElementById('form-auto-fields');
+            const blockHogar = document.getElementById('form-hogar-fields');
+            const blockVidaRetiro = document.getElementById('form-vida-retiro-fields');
+            const msgPymes = document.getElementById('msg-pymes');
+            const submitBtn = document.getElementById('submit-btn');
 
+            // Ocultar todos los bloques por defecto
+            blockAuto.style.display = 'none';
+            blockHogar.style.display = 'none';
+            blockVidaRetiro.style.display = 'none';
+            msgPymes.style.display = 'none';
+            submitBtn.style.display = 'block'; // Mostrar botón por defecto
+
+            // Desactivar "required" de campos internos para evitar errores al enviar otros formularios
+            setInputsRequired(blockAuto, false);
+            setInputsRequired(blockHogar, false);
+            setInputsRequired(blockVidaRetiro, false);
+
+            // Activar bloques según la selección
+            if (seleccion === 'Auto') {
+                blockAuto.style.display = 'block';
+                setInputsRequired(blockAuto, true);
+            } else if (seleccion === 'Hogar') {
+                blockHogar.style.display = 'block';
+                setInputsRequired(blockHogar, true);
+            } else if (seleccion === 'Vida' || seleccion === 'Retiro') {
+                blockVidaRetiro.style.display = 'block';
+                setInputsRequired(blockVidaRetiro, true);
+            } else if (seleccion === 'Pymes y Corporativos') {
+                msgPymes.style.display = 'block';
+                submitBtn.style.display = 'none'; // Oculta el botón para evitar envíos vacíos si solo querés mostrar el aviso
+            }
+        });
+
+        // Función auxiliar para requerir dinámicamente los campos visibles
+        function setInputsRequired(container, isRequired) {
+            const inputs = container.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (isRequired) {
+                    input.setAttribute('required', 'required');
+                } else {
+                    input.removeAttribute('required');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
