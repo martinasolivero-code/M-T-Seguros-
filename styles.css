@@ -482,7 +482,7 @@ footer {
 }
 /* Corrección de scroll para que no se corte el título de la sección al clickear enlaces */
 .cotizador-section {
-    scroll-margin-top: 80px; /* Compensa la altura de la barra superior fija */
+    scroll-margin-top: 110px; /* Compensa la altura de la barra superior fija */
 }
 
 /* Estilos para el menú desplegable */
